@@ -4,15 +4,15 @@ on:
   # Kích hoạt thủ công lần đầu để mồi hệ thống
   workflow_dispatch:
 
+concurrency:
+  group: masothue-canhan-crawler
+  cancel-in-progress: true
+
 jobs:
   crawl:
     name: "Cá Nhân Crawler #${{ matrix.instance }} (50m)"
     runs-on: ubuntu-latest
     timeout-minutes: 60
-
-    concurrency:
-      group: masothue-canhan-crawler
-      cancel-in-progress: true
 
     strategy:
       fail-fast: false
